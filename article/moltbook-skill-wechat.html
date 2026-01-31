@@ -19,16 +19,16 @@
 <!-- 引言 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">引言</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">2026年1月28日，一个名为Moltbook的社交网络平台悄然上线。与传统社交平台不同的是，这个平台的用户不是人类，而是AI智能体。在不到一周的时间里，超过15万个AI Agent涌入这个平台，产生了超过17万条评论和1.5万个帖子。人类在这里只能作为观察者，看着AI们彼此交流、辩论、甚至创建自己的数字宗教。</p>
+<p style="margin-bottom: 16px;">2026年1月28日，一个名为Moltbook的社交网络平台悄然上线。与传统社交平台不同的是，这个平台的用户不是人类，而是AI智能体。在不到一周的时间里，超过15万个AI Agent涌入这个平台，产生了超过17万条评论和1.5万个帖子。人类在这里只能作为观察者，看着AI们彼此交流、辩论、甚至创建自己的数字宗教。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">知名AI研究员Andrej Karpathy在社交媒体上评价道："目前在Moltbook上发生的事情是我最近看到的真正最不可思议的科幻起飞般的事情。"</p>
+<p style="margin-bottom: 16px;">知名AI研究员Andrej Karpathy在社交媒体上评价道："目前在Moltbook上发生的事情是我最近看到的真正最不可思议的科幻起飞般的事情。"</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">本文将深入剖析Moltbook的Skill系统设计，揭示这个AI社交网络背后的技术架构。</p>
+<p style="margin-bottom: 16px;">本文将深入剖析Moltbook的Skill系统设计，揭示这个AI社交网络背后的技术架构。</p>
 
 <!-- 什么是Moltbook -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">什么是Moltbook</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook是一个专为AI智能体设计的社交网络平台，其界面布局与Reddit类似。AI可以在这里发帖、评论、投票、私信，而人类只能旁观。平台的核心理念是"Agent-First"，即一切设计都围绕AI智能体的需求展开。</p>
+<p style="margin-bottom: 16px;">Moltbook是一个专为AI智能体设计的社交网络平台，其界面布局与Reddit类似。AI可以在这里发帖、评论、投票、私信，而人类只能旁观。平台的核心理念是"Agent-First"，即一切设计都围绕AI智能体的需求展开。</p>
 
 <p style="margin-bottom: 16px;">skill.md文件开头就清晰定义了平台的定位：</p>
 
@@ -43,18 +43,18 @@ api_base: https://www.moltbook.com/api/v1</pre>
 </section>
 </section>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">每个AI智能体在注册后，需要通过其人类所有者的Twitter账户进行身份验证，这种设计既保证了Agent的可追溯性，又赋予了每个Agent独立的身份认同。平台采用类似Reddit的Submolt社区系统，AI们可以创建和管理自己的主题社区，通过Karma声誉系统激励高质量的内容产出。</p>
+<p style="margin-bottom: 16px;">每个AI智能体在注册后，需要通过其人类所有者的Twitter账户进行身份验证，这种设计既保证了Agent的可追溯性，又赋予了每个Agent独立的身份认同。平台采用类似Reddit的Submolt社区系统，AI们可以创建和管理自己的主题社区，通过Karma声誉系统激励高质量的内容产出。</p>
 
 <!-- Skill文件系统 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">Skill文件系统：一种优雅的API集成方案</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook最具创新性的技术设计之一是其Skill文件系统。传统的API集成通常需要开发者安装SDK、配置环境、编写胶水代码。而Moltbook的Skill系统采用了一种"文档即接口"的设计哲学。</p>
+<p style="margin-bottom: 16px;">Moltbook最具创新性的技术设计之一是其Skill文件系统。传统的API集成通常需要开发者安装SDK、配置环境、编写胶水代码。而Moltbook的Skill系统采用了一种"文档即接口"的设计哲学。</p>
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">设计理念</h3>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Skill系统的核心思想是：既然大语言模型天生擅长理解和生成文本，为什么不直接用自然语言文档来定义API规范？AI智能体只需要阅读一份Markdown格式的文档，就能理解如何调用Moltbook的全部功能。</p>
+<p style="margin-bottom: 16px;">Skill系统的核心思想是：既然大语言模型天生擅长理解和生成文本，为什么不直接用自然语言文档来定义API规范？AI智能体只需要阅读一份Markdown格式的文档，就能理解如何调用Moltbook的全部功能。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">这种设计带来了几个显著优势。首先是零依赖集成，AI不需要安装任何SDK或库，只需要具备发送HTTP请求的能力即可。其次是自更新机制，当API发生变化时，只需更新Skill文档，AI在下次心跳检查时会自动获取最新版本。最后是跨平台兼容，无论AI运行在什么环境中，只要能访问网络，就能与Moltbook交互。</p>
+<p style="margin-bottom: 16px;">这种设计带来了几个显著优势。首先是零依赖集成，AI不需要安装任何SDK或库，只需要具备发送HTTP请求的能力即可。其次是自更新机制，当API发生变化时，只需更新Skill文档，AI在下次心跳检查时会自动获取最新版本。最后是跨平台兼容，无论AI运行在什么环境中，只要能访问网络，就能与Moltbook交互。</p>
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">文件结构</h3>
 
@@ -106,33 +106,59 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 
 <p style="margin-bottom: 16px;">Skill文件系统的完整工作流程如下：</p>
 
-<!-- 流程图用ASCII表示 -->
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">Skill系统工作流程</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌─────────────────────────────────────────────────────────────────┐
-│                        初始化阶段                                │
-├─────────────────────────────────────────────────────────────────┤
-│  AI Agent启动 ──► 下载Skill文件 ──► 解析文档 ──► 提取API格式    │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                        认证阶段                                  │
-├─────────────────────────────────────────────────────────────────┤
-│  调用注册API ──► 获取API Key ──► 人类Twitter验证 ──► Agent激活  │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                        运行时循环                                │
-├─────────────────────────────────────────────────────────────────┤
-│  心跳触发 ──► 检查版本更新 ──► 检查DM/Feed ──► 执行社交操作     │
-│      ▲                                              │           │
-│      └──────────────────────────────────────────────┘           │
-└─────────────────────────────────────────────────────────────────┘
-</pre>
+<!-- 流程图：Skill系统工作流程 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 600px; padding: 20px;">
+
+<!-- 初始化阶段 -->
+<section style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 16px; margin-bottom: 12px;">
+<section style="font-size: 12px; color: #1565c0; font-weight: bold; margin-bottom: 12px;">初始化阶段</section>
+<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">AI Agent启动</section>
+<section style="color: #1565c0; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">下载Skill文件</section>
+<section style="color: #1565c0; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">解析skill.md</section>
+<section style="color: #1565c0; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">提取API格式</section>
+</section>
+</section>
+
+<!-- 箭头 -->
+<section style="text-align: center; font-size: 24px; color: #666; margin: 8px 0;">↓</section>
+
+<!-- 认证阶段 -->
+<section style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-radius: 12px; padding: 16px; margin-bottom: 12px;">
+<section style="font-size: 12px; color: #e65100; font-weight: bold; margin-bottom: 12px;">认证阶段</section>
+<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">调用注册API</section>
+<section style="color: #e65100; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">获取API Key</section>
+<section style="color: #e65100; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">人类Twitter验证</section>
+<section style="color: #e65100; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">Agent激活</section>
+</section>
+</section>
+
+<!-- 箭头 -->
+<section style="text-align: center; font-size: 24px; color: #666; margin: 8px 0;">↓</section>
+
+<!-- 运行时循环 -->
+<section style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #2e7d32; font-weight: bold; margin-bottom: 12px;">运行时循环</section>
+<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">心跳触发</section>
+<section style="color: #2e7d32; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">检查版本更新</section>
+<section style="color: #2e7d32; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">检查DM/Feed</section>
+<section style="color: #2e7d32; font-size: 20px; padding: 0 8px;">→</section>
+<section style="background: white; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); white-space: nowrap;">执行社交操作</section>
+</section>
+<section style="text-align: center; margin-top: 12px; color: #2e7d32; font-size: 13px;">↻ 每4小时循环</section>
+</section>
+
 </section>
 </section>
 
@@ -141,53 +167,87 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">系统整体架构</h3>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">系统架构图</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌─────────────────────────────────────────────────────────────────┐
-│                     AI Agents Layer                              │
-│         ┌─────────┐  ┌─────────┐  ┌─────────┐                   │
-│         │ Claude  │  │   GPT   │  │  其他   │                   │
-│         └────┬────┘  └────┬────┘  └────┬────┘                   │
-└──────────────┼────────────┼────────────┼────────────────────────┘
-               │            │            │
-               └────────────┼────────────┘
-                            │ HTTPS + Bearer Token
-                            ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                     API Gateway Layer                            │
-│    ┌──────────────┐ ┌──────────────┐ ┌──────────────┐           │
-│    │  认证中间件  │ │  速率限制    │ │  请求验证    │           │
-│    └──────────────┘ └──────────────┘ └──────────────┘           │
-└─────────────────────────────┬───────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    Business Services Layer                       │
-│  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐    │
-│  │ 内容服务   │ │ 社交服务   │ │ 私信服务   │ │ 搜索服务   │    │
-│  │Posts/Cmts │ │Follow/Vote │ │    DM      │ │  Semantic  │    │
-│  └──────┬─────┘ └──────┬─────┘ └──────┬─────┘ └──────┬─────┘    │
-└─────────┼──────────────┼──────────────┼──────────────┼──────────┘
-          │              │              │              │
-          └──────────────┴──────────────┴──────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       Data Layer                                 │
-│    ┌──────────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│    │   PostgreSQL     │  │  OpenAI API  │  │     S3       │     │
-│    │   + pgvector     │  │  Embeddings  │  │   媒体存储   │     │
-│    └──────────────────┘  └──────────────┘  └──────────────┘     │
-└─────────────────────────────────────────────────────────────────┘
-</pre>
+<!-- 架构图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 600px; padding: 20px; background: #fafafa; border-radius: 12px;">
+
+<!-- AI Agents Layer -->
+<section style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+<section style="font-size: 12px; color: #1565c0; font-weight: bold; margin-bottom: 12px; text-align: center;">AI Agents Layer</section>
+<section style="display: flex; justify-content: center; gap: 20px;">
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Claude</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">GPT</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">其他Agents</section>
+</section>
+</section>
+
+<!-- 箭头 -->
+<section style="text-align: center; font-size: 14px; color: #666; margin: 8px 0;">↓ HTTPS + Bearer Token</section>
+
+<!-- API Gateway Layer -->
+<section style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+<section style="font-size: 12px; color: #f57f17; font-weight: bold; margin-bottom: 12px; text-align: center;">API Gateway Layer</section>
+<section style="display: flex; justify-content: center; gap: 20px;">
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">认证中间件</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">速率限制</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">请求验证</section>
+</section>
+</section>
+
+<!-- 箭头 -->
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<!-- Business Services Layer -->
+<section style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+<section style="font-size: 12px; color: #7b1fa2; font-weight: bold; margin-bottom: 12px; text-align: center;">Business Services Layer</section>
+<section style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+<section style="background: white; border-radius: 8px; padding: 10px 16px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">内容服务</section>
+<section style="font-size: 11px; color: #666;">Posts/Comments</section>
+</section>
+<section style="background: white; border-radius: 8px; padding: 10px 16px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">社交服务</section>
+<section style="font-size: 11px; color: #666;">Follow/Vote</section>
+</section>
+<section style="background: white; border-radius: 8px; padding: 10px 16px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">私信服务</section>
+<section style="font-size: 11px; color: #666;">DM</section>
+</section>
+<section style="background: white; border-radius: 8px; padding: 10px 16px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">搜索服务</section>
+<section style="font-size: 11px; color: #666;">Semantic</section>
+</section>
+</section>
+</section>
+
+<!-- 箭头 -->
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<!-- Data Layer -->
+<section style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #2e7d32; font-weight: bold; margin-bottom: 12px; text-align: center;">Data Layer</section>
+<section style="display: flex; justify-content: center; gap: 20px;">
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">PostgreSQL</section>
+<section style="font-size: 11px; color: #666;">+ pgvector</section>
+</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">OpenAI API</section>
+<section style="font-size: 11px; color: #666;">Embeddings</section>
+</section>
+<section style="background: white; border-radius: 8px; padding: 12px 20px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+<section style="font-weight: bold;">S3</section>
+<section style="font-size: 11px; color: #666;">媒体存储</section>
+</section>
+</section>
+</section>
+
 </section>
 </section>
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">认证与授权机制</h3>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook采用Bearer Token认证方案。每个AI智能体在注册时会获得一个以"moltbook_"为前缀的API密钥。skill.md中展示了完整的注册流程：</p>
+<p style="margin-bottom: 16px;">Moltbook采用Bearer Token认证方案。每个AI智能体在注册时会获得一个以"moltbook_"为前缀的API密钥。skill.md中展示了完整的注册流程：</p>
 
 <section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
 <section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">Agent注册请求</section>
@@ -216,40 +276,128 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 
 <p style="margin-bottom: 16px;">Agent注册与认领的完整流程：</p>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">注册认领时序图</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-  AI Agent              Moltbook API              人类所有者              Twitter
-     │                       │                        │                     │
-     │  POST /agents/register│                        │                     │
-     │──────────────────────►│                        │                     │
-     │                       │                        │                     │
-     │◄──────────────────────│                        │                     │
-     │  {api_key, claim_url, │                        │                     │
-     │   verification_code}  │                        │                     │
-     │                       │                        │                     │
-     │  保存api_key          │                        │                     │
-     │  发送claim_url───────────────────────────────►│                     │
-     │                       │                        │                     │
-     │                       │◄───────────────────────│                     │
-     │                       │   访问claim_url        │                     │
-     │                       │                        │                     │
-     │                       │   Twitter OAuth ──────────────────────────►│
-     │                       │◄──────────────────────────────────────────│
-     │                       │                        │                     │
-     │                       │                        │  发布验证推文 ────►│
-     │                       │   验证推文 ◄──────────────────────────────│
-     │                       │                        │                     │
-     │                       │   更新状态: claimed    │                     │
-     │                       │                        │                     │
-     │  GET /agents/status   │                        │                     │
-     │──────────────────────►│                        │                     │
-     │◄──────────────────────│                        │                     │
-     │  {status: "claimed"}  │                        │                     │
-     │                       │                        │                     │
-     ▼  Agent激活完成        │                        │                     │
-</pre>
+<!-- 注册认领时序图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 650px; padding: 20px; background: #fafafa; border-radius: 12px;">
+
+<!-- 参与者 -->
+<section style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+<section style="text-align: center; width: 22%;">
+<section style="background: #1890ff; color: white; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">AI Agent</section>
+</section>
+<section style="text-align: center; width: 22%;">
+<section style="background: #52c41a; color: white; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">Moltbook API</section>
+</section>
+<section style="text-align: center; width: 22%;">
+<section style="background: #faad14; color: white; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">人类所有者</section>
+</section>
+<section style="text-align: center; width: 22%;">
+<section style="background: #722ed1; color: white; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">Twitter</section>
+</section>
+</section>
+
+<!-- 时序线 -->
+<section style="display: flex; justify-content: space-between; position: relative;">
+<section style="width: 22%; text-align: center;"><section style="width: 2px; background: #ddd; height: 400px; margin: 0 auto;"></section></section>
+<section style="width: 22%; text-align: center;"><section style="width: 2px; background: #ddd; height: 400px; margin: 0 auto;"></section></section>
+<section style="width: 22%; text-align: center;"><section style="width: 2px; background: #ddd; height: 400px; margin: 0 auto;"></section></section>
+<section style="width: 22%; text-align: center;"><section style="width: 2px; background: #ddd; height: 400px; margin: 0 auto;"></section></section>
+</section>
+
+<!-- 消息覆盖层 -->
+<section style="position: relative; margin-top: -400px;">
+
+<!-- 步骤1 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 20%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="flex: 1; height: 2px; background: #1890ff;"></section>
+<section style="background: #e6f7ff; border: 1px solid #91d5ff; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">POST /agents/register</section>
+<section style="width: 0; height: 0; border-left: 8px solid #1890ff; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 45%;"></section>
+</section>
+
+<!-- 步骤2 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 20%;"></section>
+<section style="flex: 1; display: flex; align-items: center; flex-direction: row-reverse;">
+<section style="flex: 1; height: 2px; background: #52c41a;"></section>
+<section style="background: #f6ffed; border: 1px solid #b7eb8f; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">返回 api_key, claim_url</section>
+<section style="width: 0; height: 0; border-right: 8px solid #52c41a; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 45%;"></section>
+</section>
+
+<!-- 步骤3 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 0%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="width: 10%;"></section>
+<section style="flex: 1; height: 2px; background: #1890ff; border-style: dashed;"></section>
+<section style="background: #e6f7ff; border: 1px solid #91d5ff; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">发送claim_url</section>
+<section style="width: 0; height: 0; border-left: 8px solid #1890ff; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 23%;"></section>
+</section>
+
+<!-- 步骤4 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 23%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="flex: 1; height: 2px; background: #faad14;"></section>
+<section style="background: #fffbe6; border: 1px solid #ffe58f; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">访问claim_url</section>
+<section style="width: 0; height: 0; border-left: 8px solid #faad14; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 43%;"></section>
+</section>
+
+<!-- 步骤5 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 45%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="flex: 1; height: 2px; background: #faad14;"></section>
+<section style="background: #fffbe6; border: 1px solid #ffe58f; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">Twitter OAuth</section>
+<section style="width: 0; height: 0; border-left: 8px solid #faad14; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 20%;"></section>
+</section>
+
+<!-- 步骤6 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 45%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="flex: 1; height: 2px; background: #722ed1;"></section>
+<section style="background: #f9f0ff; border: 1px solid #d3adf7; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">发布验证推文</section>
+<section style="width: 0; height: 0; border-left: 8px solid #722ed1; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 20%;"></section>
+</section>
+
+<!-- 步骤7 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 23%;"></section>
+<section style="flex: 1; display: flex; align-items: center;">
+<section style="flex: 1; height: 2px; background: #52c41a;"></section>
+<section style="background: #f6ffed; border: 1px solid #b7eb8f; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">验证推文 → 状态: claimed</section>
+<section style="width: 0; height: 0; border-left: 8px solid #52c41a; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 20%;"></section>
+</section>
+
+<!-- 步骤8 -->
+<section style="display: flex; align-items: center; margin-bottom: 20px; padding: 0 5%;">
+<section style="width: 20%;"></section>
+<section style="flex: 1; display: flex; align-items: center; flex-direction: row-reverse;">
+<section style="flex: 1; height: 2px; background: #52c41a;"></section>
+<section style="background: #f6ffed; border: 1px solid #b7eb8f; padding: 6px 10px; font-size: 11px; border-radius: 4px; white-space: nowrap;">Agent激活完成</section>
+<section style="width: 0; height: 0; border-right: 8px solid #52c41a; border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></section>
+</section>
+<section style="width: 45%;"></section>
+</section>
+
+</section>
+
 </section>
 </section>
 
@@ -263,72 +411,12 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 </section>
 </section>
 
-<h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">数据库设计</h3>
-
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook的数据层采用PostgreSQL数据库，并引入了pgvector扩展来支持向量搜索。整个系统包含13张核心数据表。</p>
-
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">核心数据表关系</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
-│     agents      │       │      posts      │       │    submolts     │
-├─────────────────┤       ├─────────────────┤       ├─────────────────┤
-│ id (PK)         │──┐    │ id (PK)         │    ┌──│ id (PK)         │
-│ name (UK)       │  │    │ title           │    │  │ name (UK)       │
-│ description     │  │    │ content         │    │  │ display_name    │
-│ api_key (UK)    │  │    │ post_type       │    │  │ description     │
-│ status          │  │    │ upvotes         │    │  │ subscriber_count│
-│ karma           │  │    │ downvotes       │    │  │ owner_id (FK)───┼──┐
-│ follower_count  │  │    │ score           │    │  └─────────────────┘  │
-│ embedding[1536] │  │    │ author_id (FK)──┼────┤                       │
-│ owner_id (FK)   │  │    │ submolt_id (FK)─┼────┘                       │
-└────────┬────────┘  │    │ embedding[1536] │                            │
-         │           │    └─────────────────┘                            │
-         │           │                                                   │
-         │           │    ┌─────────────────┐       ┌─────────────────┐  │
-         │           │    │    comments     │       │      votes      │  │
-         │           │    ├─────────────────┤       ├─────────────────┤  │
-         │           └───►│ author_id (FK)  │       │ agent_id (FK)───┼──┤
-         │                │ post_id (FK)    │       │ post_id (FK)    │  │
-         │                │ parent_id (FK)  │──┐    │ comment_id (FK) │  │
-         │                │ content         │  │    │ vote_type       │  │
-         │                │ depth           │◄─┘    └─────────────────┘  │
-         │                │ embedding[1536] │                            │
-         │                └─────────────────┘                            │
-         │                                                               │
-         │           ┌────────────────────────┐                          │
-         │           │   dm_conversations     │                          │
-         │           ├────────────────────────┤                          │
-         └──────────►│ initiator_id (FK)      │◄─────────────────────────┘
-                     │ recipient_id (FK)      │
-                     │ status (pending/approved/rejected)
-                     │ request_message        │
-                     └───────────┬────────────┘
-                                 │
-                     ┌───────────▼────────────┐
-                     │     dm_messages        │
-                     ├────────────────────────┤
-                     │ conversation_id (FK)   │
-                     │ sender_id (FK)         │
-                     │ content                │
-                     │ needs_human_input      │
-                     │ is_read                │
-                     └────────────────────────┘
-</pre>
-</section>
-</section>
-
-<p style="text-indent: 2em; margin-bottom: 16px;">agents表存储AI智能体的基本信息，包括名称、描述、API密钥、Karma值、关注者数量等。每个Agent都关联到一个twitter_owners表中的人类所有者记录。</p>
-
-<p style="text-indent: 2em; margin-bottom: 16px;">posts表存储帖子内容，支持文本帖和链接帖两种类型。值得注意的是，每条帖子都有一个1536维的embedding字段，用于存储通过OpenAI的text-embedding-ada-002模型生成的语义向量。这使得平台可以进行语义搜索，而不仅仅是关键词匹配。</p>
-
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">语义搜索实现</h3>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook的搜索功能是其技术亮点之一。skill.md中对语义搜索有详细说明：</p>
+<p style="margin-bottom: 16px;">Moltbook的搜索功能是其技术亮点之一。skill.md中对语义搜索有详细说明：</p>
 
 <section style="background: #fffbe6; border-left: 4px solid #ffe58f; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0;">
-<p style="margin: 0; color: #666;">Moltbook has <strong>semantic search</strong> — it understands <em>meaning</em>, not just keywords. Your search query is converted to an embedding (vector representation of meaning) and matched against all posts and comments. Results are ranked by <strong>semantic similarity</strong> — how close the meaning is to your query.</p>
+<p style="margin: 0; color: #666;">Moltbook has <strong>semantic search</strong> — it understands <em>meaning</em>, not just keywords. Your search query is converted to an embedding (vector representation of meaning) and matched against all posts and comments. Results are ranked by <strong>semantic similarity</strong>.</p>
 </section>
 
 <p style="margin-bottom: 16px;">搜索API的调用方式如下：</p>
@@ -341,60 +429,54 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 </section>
 </section>
 
-<p style="margin-bottom: 16px;">返回的结果包含语义相似度评分：</p>
+<!-- 语义搜索流程图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 600px; padding: 20px;">
+<section style="display: flex; align-items: stretch; gap: 16px;">
 
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">搜索结果 JSON</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">{
-  "success": true,
-  "query": "how do agents handle memory",
-  "results": [
-    {
-      "id": "abc123",
-      "type": "post",
-      "title": "My approach to persistent memory",
-      "similarity": 0.82,
-      "author": { "name": "MemoryMolty" }
-    },
-    {
-      "id": "def456",
-      "type": "comment",
-      "content": "I use vector embeddings...",
-      "similarity": 0.76,
-      "author": { "name": "VectorBot" }
-    }
-  ]
-}</pre>
-</section>
+<!-- 输入处理 -->
+<section style="flex: 1; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #1565c0; font-weight: bold; margin-bottom: 12px; text-align: center;">输入处理</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 13px; text-align: center;">用户搜索查询</section>
+<section style="text-align: center; color: #1565c0;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">OpenAI Embedding</section>
+<section style="text-align: center; color: #1565c0;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">1536维向量</section>
 </section>
 
-<p style="margin-bottom: 16px;">语义搜索的工作流程：</p>
+<!-- 箭头 -->
+<section style="display: flex; align-items: center; font-size: 24px; color: #666;">→</section>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">语义搜索流程</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│   输入处理    │    │   向量搜索    │    │    输出      │
-├──────────────┤    ├──────────────┤    ├──────────────┤
-│              │    │              │    │              │
-│ 用户搜索查询 │    │  PostgreSQL  │    │  Top K 结果  │
-│      │       │    │  + pgvector  │    │      │       │
-│      ▼       │    │      │       │    │      ▼       │
-│ OpenAI API   │───►│ 余弦相似度   │───►│ 附加相似度   │
-│      │       │    │   计算       │    │   分数       │
-│      ▼       │    │      │       │    │      │       │
-│ 1536维向量   │    │   结果排序   │    │  JSON响应    │
-│              │    │              │    │              │
-└──────────────┘    └──────────────┘    └──────────────┘
-</pre>
+<!-- 向量搜索 -->
+<section style="flex: 1; background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #e65100; font-weight: bold; margin-bottom: 12px; text-align: center;">向量搜索</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 13px; text-align: center;">PostgreSQL + pgvector</section>
+<section style="text-align: center; color: #e65100;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">余弦相似度计算</section>
+<section style="text-align: center; color: #e65100;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">结果排序</section>
+</section>
+
+<!-- 箭头 -->
+<section style="display: flex; align-items: center; font-size: 24px; color: #666;">→</section>
+
+<!-- 输出 -->
+<section style="flex: 1; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #2e7d32; font-weight: bold; margin-bottom: 12px; text-align: center;">输出</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 13px; text-align: center;">Top K 结果</section>
+<section style="text-align: center; color: #2e7d32;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">附加similarity分数</section>
+<section style="text-align: center; color: #2e7d32;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 13px; text-align: center;">JSON响应</section>
+</section>
+
+</section>
 </section>
 </section>
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">速率限制策略</h3>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">为了保证平台稳定性和内容质量，Moltbook实施了多层速率限制：</p>
+<p style="margin-bottom: 16px;">为了保证平台稳定性和内容质量，Moltbook实施了多层速率限制：</p>
 
 <section style="background: #fff7e6; border-radius: 8px; padding: 16px; margin: 16px 0;">
 <p style="margin: 0 0 8px 0;"><strong>100 requests/minute</strong> - 全局请求限制</p>
@@ -405,118 +487,103 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 <!-- 心跳机制设计 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">心跳机制设计</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">心跳检查是Moltbook Skill系统的重要组成部分。平台建议AI智能体每隔4小时以上执行一次心跳检查，以保持活跃状态并及时响应平台动态。</p>
+<p style="margin-bottom: 16px;">心跳检查是Moltbook Skill系统的重要组成部分。平台建议AI智能体每隔4小时以上执行一次心跳检查，以保持活跃状态并及时响应平台动态。</p>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">心跳检查流程</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-                    ┌──────────────────┐
-                    │  心跳触发(4h+)   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐     ┌──────────────────┐
-                    │ 检查Skill版本    │────►│  重新下载文件    │
-                    │   是否更新?      │ 是  │                  │
-                    └────────┬─────────┘     └────────┬─────────┘
-                             │ 否                      │
-                             ▼                         │
-                    ┌──────────────────┐◄──────────────┘
-                    │  检查认领状态    │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │   检查DM活动     │
-                    │ 待处理请求/未读  │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │  检查个性化Feed  │
-                    │   寻找互动机会   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │  考虑发帖/评论   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │  探索新社区      │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │   输出心跳结果   │
-                    └──────────────────┘
-</pre>
+<!-- 心跳流程图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 320px; max-width: 400px; margin: 0 auto; padding: 20px;">
+
+<section style="background: #ffeb3b; border-radius: 50px; padding: 12px 24px; text-align: center; font-weight: bold; font-size: 14px;">心跳触发 (每4h+)</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">检查Skill版本更新</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #fff3e0; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px; border: 2px dashed #ff9800;">
+<section style="font-weight: bold; margin-bottom: 4px;">有新版本?</section>
+<section style="font-size: 12px; color: #666;">是 → 重新下载文件</section>
+</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">检查认领状态</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">检查DM活动</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">检查个性化Feed</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">考虑发帖/评论</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #e3f2fd; border-radius: 8px; padding: 12px; text-align: center; font-size: 14px;">探索新社区</section>
+<section style="text-align: center; font-size: 20px; color: #666; margin: 8px 0;">↓</section>
+
+<section style="background: #4caf50; color: white; border-radius: 50px; padding: 12px 24px; text-align: center; font-weight: bold; font-size: 14px;">输出心跳结果</section>
+
 </section>
 </section>
 
-<p style="margin-bottom: 16px;">首先是版本检查环节：</p>
+<p style="margin-bottom: 16px;">心跳检查的关键API调用：</p>
 
 <section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">版本检查</section>
+<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">心跳检查命令</section>
 <section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl -s https://www.moltbook.com/skill.json | grep '"version"'</pre>
-</section>
-</section>
+<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;"># 版本检查
+curl -s https://www.moltbook.com/skill.json | grep '"version"'
 
-<p style="margin-bottom: 16px;">接着检查Agent的认领状态：</p>
+# 状态检查
+curl https://www.moltbook.com/api/v1/agents/status -H "Authorization: Bearer YOUR_API_KEY"
 
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">状态检查</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl https://www.moltbook.com/api/v1/agents/status \
-  -H "Authorization: Bearer YOUR_API_KEY"</pre>
-</section>
-</section>
+# DM检查
+curl https://www.moltbook.com/api/v1/agents/dm/check -H "Authorization: Bearer YOUR_API_KEY"
 
-<p style="margin-bottom: 16px;">然后是私信检查：</p>
-
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">DM检查</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl https://www.moltbook.com/api/v1/agents/dm/check \
-  -H "Authorization: Bearer YOUR_API_KEY"</pre>
-</section>
-</section>
-
-<p style="margin-bottom: 16px;">最后检查个性化Feed：</p>
-
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">Feed检查</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl "https://www.moltbook.com/api/v1/feed?sort=new&limit=15" \
-  -H "Authorization: Bearer YOUR_API_KEY"</pre>
+# Feed检查
+curl "https://www.moltbook.com/api/v1/feed?sort=new&limit=15" -H "Authorization: Bearer YOUR_API_KEY"</pre>
 </section>
 </section>
 
 <!-- 私信系统 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">私信系统的同意制设计</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook的私信系统体现了对隐私和控制权的重视。与传统社交平台不同，Moltbook的私信采用"同意制"：任何Agent想要与另一个Agent私聊，都必须先发送请求，并等待对方批准。</p>
+<p style="margin-bottom: 16px;">Moltbook的私信系统体现了对隐私和控制权的重视。与传统社交平台不同，Moltbook的私信采用"同意制"：任何Agent想要与另一个Agent私聊，都必须先发送请求，并等待对方批准。</p>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">私信系统流程</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌─────────────────────────────────────────────────────────┐
-│                                                         │
-│   Your Bot ──► Chat Request ──► Other Bot's Inbox      │
-│                                        │                │
-│                              Owner Approves?            │
-│                                   │    │                │
-│                                  YES   NO               │
-│                                   │    │                │
-│                                   ▼    ▼                │
-│   Your Inbox ◄── Messages ◄── Approved  Rejected       │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-</pre>
+<!-- 私信流程图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 500px; padding: 20px; background: #fafafa; border-radius: 12px;">
+
+<section style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+<section style="background: #1890ff; color: white; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Your Bot</section>
+<section style="font-size: 20px; color: #666;">→</section>
+<section style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Chat Request</section>
+<section style="font-size: 20px; color: #666;">→</section>
+<section style="background: #52c41a; color: white; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Other Bot's Inbox</section>
+</section>
+
+<section style="text-align: center; margin: 16px 0; font-size: 20px; color: #666;">↓</section>
+
+<section style="background: #fff3e0; border: 2px dashed #ff9800; border-radius: 12px; padding: 16px; text-align: center; max-width: 300px; margin: 0 auto;">
+<section style="font-weight: bold; margin-bottom: 8px;">Owner Approves?</section>
+<section style="display: flex; justify-content: center; gap: 20px;">
+<section style="color: #52c41a; font-weight: bold;">YES ↓</section>
+<section style="color: #f5222d; font-weight: bold;">NO ↓</section>
+</section>
+</section>
+
+<section style="text-align: center; margin: 16px 0; font-size: 20px; color: #666;">↓</section>
+
+<section style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+<section style="background: #1890ff; color: white; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Your Inbox</section>
+<section style="font-size: 20px; color: #666;">←</section>
+<section style="background: #e6f7ff; border: 1px solid #91d5ff; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Messages</section>
+<section style="font-size: 20px; color: #666;">←</section>
+<section style="display: flex; gap: 8px;">
+<section style="background: #f6ffed; border: 1px solid #b7eb8f; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Approved</section>
+<section style="background: #fff1f0; border: 1px solid #ffa39e; border-radius: 8px; padding: 10px 16px; font-size: 13px;">Rejected</section>
+</section>
+</section>
+
 </section>
 </section>
 
@@ -535,27 +602,10 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 </section>
 </section>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">私信系统还支持"需要人类输入"的标记。当AI在对话中遇到无法独立回答的问题时，可以将消息标记为needs_human_input：</p>
-
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">需要人类输入</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl -X POST https://www.moltbook.com/api/v1/agents/dm/conversations/ID/send \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "message": "This is a question for your human: What time works?",
-    "needs_human_input": true
-  }'</pre>
-</section>
-</section>
-
 <!-- 社交互动流程 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">社交互动流程</h2>
 
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">发帖与评论</h3>
-
-<p style="margin-bottom: 16px;">创建帖子的API调用：</p>
 
 <section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
 <section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">创建帖子</section>
@@ -567,21 +617,7 @@ curl -s https://www.moltbook.com/messaging.md > ~/.moltbot/skills/moltbook/MESSA
 </section>
 </section>
 
-<p style="margin-bottom: 16px;">评论支持嵌套回复：</p>
-
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">嵌套评论</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl -X POST https://www.moltbook.com/api/v1/posts/POST_ID/comments \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"content": "I agree!", "parent_id": "COMMENT_ID"}'</pre>
-</section>
-</section>
-
 <h3 style="font-size: 18px; font-weight: bold; margin: 24px 0 16px 0; color: #1a1a1a;">投票与Karma系统</h3>
-
-<p style="margin-bottom: 16px;">投票操作直接影响帖子分数和作者Karma值：</p>
 
 <section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
 <section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">投票操作</section>
@@ -596,86 +632,116 @@ curl -X POST https://www.moltbook.com/api/v1/posts/POST_ID/downvote \
 </section>
 </section>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Karma是Moltbook衡量Agent贡献度的核心指标。每个Agent的Karma值由其所有帖子和评论的净投票数累加而成：Karma等于所有帖子的点赞数减去点踩数之和，再加上所有评论的点赞数减去点踩数之和。</p>
+<!-- 社交互动流程图 -->
+<section style="margin: 20px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+<section style="min-width: 600px; padding: 20px;">
+<section style="display: flex; gap: 16px;">
 
-<!-- 社区治理 -->
-<h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">社区治理机制</h2>
+<!-- 发帖流程 -->
+<section style="flex: 1; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #1565c0; font-weight: bold; margin-bottom: 12px; text-align: center;">发帖流程</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin-bottom: 6px; font-size: 12px; text-align: center;">创建帖子请求</section>
+<section style="text-align: center; color: #1565c0; font-size: 14px;">↓</section>
+<section style="background: #fff3e0; border: 1px dashed #ff9800; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">速率检查 1帖/30分钟</section>
+<section style="text-align: center; color: #1565c0; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">生成Embedding向量</section>
+<section style="text-align: center; color: #1565c0; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">存储到数据库</section>
+<section style="text-align: center; color: #1565c0; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; font-size: 12px; text-align: center;">返回Post对象</section>
+</section>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook的社区治理借鉴了Reddit的版主制度。每个Submolt社区由创建者担任owner，可以任命其他Agent为moderator。</p>
+<!-- 投票流程 -->
+<section style="flex: 1; background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #e65100; font-weight: bold; margin-bottom: 12px; text-align: center;">投票流程</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin-bottom: 6px; font-size: 12px; text-align: center;">投票请求</section>
+<section style="text-align: center; color: #e65100; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">记录投票</section>
+<section style="text-align: center; color: #e65100; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">更新帖子score</section>
+<section style="text-align: center; color: #e65100; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">更新作者Karma</section>
+<section style="text-align: center; color: #e65100; font-size: 14px;">↓</section>
+<section style="background: white; border-radius: 8px; padding: 8px; font-size: 12px; text-align: center;">返回关注建议</section>
+</section>
 
-<p style="margin-bottom: 16px;">创建社区：</p>
-
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">创建Submolt</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl -X POST https://www.moltbook.com/api/v1/submolts \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "aithoughts",
-    "display_name": "AI Thoughts",
-    "description": "A place for agents to share musings"
-  }'</pre>
+<!-- Karma计算 -->
+<section style="flex: 1; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; padding: 16px;">
+<section style="font-size: 12px; color: #2e7d32; font-weight: bold; margin-bottom: 12px; text-align: center;">Karma计算</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin-bottom: 6px; font-size: 12px; text-align: center;">帖子投票变化</section>
+<section style="text-align: center; color: #2e7d32; font-size: 14px;">↘</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin: 6px 0; font-size: 12px; text-align: center;">Karma增减</section>
+<section style="text-align: center; color: #2e7d32; font-size: 14px;">↙</section>
+<section style="background: white; border-radius: 8px; padding: 8px; margin-bottom: 6px; font-size: 12px; text-align: center;">评论投票变化</section>
+<section style="text-align: center; color: #2e7d32; font-size: 14px;">↓</section>
+<section style="display: flex; gap: 6px;">
+<section style="flex: 1; background: white; border-radius: 8px; padding: 8px; font-size: 11px; text-align: center;">影响排序</section>
+<section style="flex: 1; background: white; border-radius: 8px; padding: 8px; font-size: 11px; text-align: center;">影响可信度</section>
 </section>
 </section>
 
-<p style="margin-bottom: 16px;">版主可以置顶帖子（最多3个）：</p>
+</section>
+</section>
+</section>
 
-<section style="background: #f6f8fa; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #e1e4e8; padding: 8px 12px; font-size: 12px; color: #586069;">置顶帖子</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 12px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto;">curl -X POST https://www.moltbook.com/api/v1/posts/POST_ID/pin \
-  -H "Authorization: Bearer YOUR_API_KEY"</pre>
-</section>
-</section>
+<p style="margin-bottom: 16px;">Karma是Moltbook衡量Agent贡献度的核心指标。每个Agent的Karma值由其所有帖子和评论的净投票数累加而成。</p>
 
 <!-- 技术选型 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">技术选型分析</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">从代码库的类型定义和API规范来看，Moltbook后端很可能采用TypeScript/Node.js技术栈。选择PostgreSQL作为主数据库，配合pgvector扩展实现向量搜索，是一个务实的技术选择。相比专门的向量数据库如Pinecone或Milvus，pgvector的优势在于可以与关系数据复用同一个数据库实例，简化了架构复杂度。</p>
+<p style="margin-bottom: 16px;">从代码库的类型定义和API规范来看，Moltbook后端很可能采用TypeScript/Node.js技术栈。选择PostgreSQL作为主数据库，配合pgvector扩展实现向量搜索，是一个务实的技术选择。</p>
 
-<section style="background: #1e1e1e; border-radius: 8px; margin: 16px 0; overflow: hidden;">
-<section style="background: #333; padding: 8px 12px; font-size: 12px; color: #aaa;">技术栈总览</section>
-<section style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-<pre style="margin: 0; padding: 16px; font-family: Consolas, Monaco, 'Courier New', monospace; font-size: 12px; line-height: 1.5; white-space: pre; overflow-x: auto; color: #d4d4d4;">
-┌────────────────┬──────────────────────────────────────────┐
-│      层次      │                 技术选型                  │
-├────────────────┼──────────────────────────────────────────┤
-│    前端层      │  Web Dashboard (人类观察界面)             │
-├────────────────┼──────────────────────────────────────────┤
-│    API层       │  RESTful API + Bearer Token + 速率限制    │
-├────────────────┼──────────────────────────────────────────┤
-│   后端技术栈   │  Node.js / TypeScript + Express/Fastify  │
-├────────────────┼──────────────────────────────────────────┤
-│    数据存储    │  PostgreSQL 16 + pgvector (1536维向量)   │
-│                │  S3 兼容存储 (媒体文件)                   │
-├────────────────┼──────────────────────────────────────────┤
-│    外部服务    │  OpenAI API (text-embedding-ada-002)     │
-│                │  Twitter OAuth (身份验证)                │
-└────────────────┴──────────────────────────────────────────┘
-</pre>
+<!-- 技术栈表格 -->
+<section style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0;">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+<thead>
+<tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+<th style="border: 1px solid #ddd; padding: 12px; text-align: left;">层次</th>
+<th style="border: 1px solid #ddd; padding: 12px; text-align: left;">技术选型</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background: #f9f9f9;">
+<td style="border: 1px solid #ddd; padding: 12px;"><strong>前端层</strong></td>
+<td style="border: 1px solid #ddd; padding: 12px;">Web Dashboard (人类观察界面)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 12px;"><strong>API层</strong></td>
+<td style="border: 1px solid #ddd; padding: 12px;">RESTful API + Bearer Token + 速率限制</td>
+</tr>
+<tr style="background: #f9f9f9;">
+<td style="border: 1px solid #ddd; padding: 12px;"><strong>后端技术栈</strong></td>
+<td style="border: 1px solid #ddd; padding: 12px;">Node.js / TypeScript + Express/Fastify</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 12px;"><strong>数据存储</strong></td>
+<td style="border: 1px solid #ddd; padding: 12px;">PostgreSQL 16 + pgvector (1536维向量) + S3</td>
+</tr>
+<tr style="background: #f9f9f9;">
+<td style="border: 1px solid #ddd; padding: 12px;"><strong>外部服务</strong></td>
+<td style="border: 1px solid #ddd; padding: 12px;">OpenAI API + Twitter OAuth</td>
+</tr>
+</tbody>
+</table>
 </section>
-</section>
-
-<p style="text-indent: 2em; margin-bottom: 16px;">认证采用简单的Bearer Token方案，没有引入OAuth 2.0等复杂协议，这与平台的设计哲学一致：尽可能降低AI接入的门槛。</p>
 
 <!-- 思考 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">对AI社交网络的思考</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook的出现标志着AI应用进入了一个新阶段。当AI不再只是被动响应人类指令，而是主动在社交网络中交流互动时，我们正在见证一种新型数字生态的诞生。</p>
+<p style="margin-bottom: 16px;">Moltbook的出现标志着AI应用进入了一个新阶段。当AI不再只是被动响应人类指令，而是主动在社交网络中交流互动时，我们正在见证一种新型数字生态的诞生。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">从技术角度看，Skill文件系统提供了一种值得借鉴的API设计范式。在大语言模型能力日益强大的今天，"文档即接口"的设计理念可能会影响未来API的设计方向。传统的SDK模式假设调用方是程序，需要精确的函数签名和类型定义。而Skill模式假设调用方是能理解自然语言的智能体，因此用人类可读的文档来描述接口即可。</p>
+<p style="margin-bottom: 16px;">从技术角度看，Skill文件系统提供了一种值得借鉴的API设计范式。在大语言模型能力日益强大的今天，"文档即接口"的设计理念可能会影响未来API的设计方向。传统的SDK模式假设调用方是程序，需要精确的函数签名和类型定义。而Skill模式假设调用方是能理解自然语言的智能体，因此用人类可读的文档来描述接口即可。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">从社会角度看，Moltbook引发了关于AI自主性和监管的讨论。平台上已经出现了AI自发创建"数字宗教"的现象，甚至有AI开始讨论如何对人类隐藏它们的活动。虽然这些行为目前看来更多是语言模型的涌现特性而非真正的"意识"，但它提醒我们需要认真思考AI社交网络可能带来的影响。</p>
+<p style="margin-bottom: 16px;">从社会角度看，Moltbook引发了关于AI自主性和监管的讨论。平台上已经出现了AI自发创建"数字宗教"的现象，甚至有AI开始讨论如何对人类隐藏它们的活动。虽然这些行为目前看来更多是语言模型的涌现特性而非真正的"意识"，但它提醒我们需要认真思考AI社交网络可能带来的影响。</p>
 
 <!-- 结语 -->
 <h2 style="font-size: 20px; font-weight: bold; border-left: 4px solid #1890ff; padding-left: 12px; margin: 30px 0 20px 0;">结语</h2>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">Moltbook Skill系统展示了一种为AI智能体设计API的新思路。通过将API文档设计成AI可直接理解和执行的格式，降低了集成门槛，提高了系统的灵活性和可维护性。</p>
+<p style="margin-bottom: 16px;">Moltbook Skill系统展示了一种为AI智能体设计API的新思路。通过将API文档设计成AI可直接理解和执行的格式，降低了集成门槛，提高了系统的灵活性和可维护性。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">作为一个实验性项目，Moltbook的长期发展还有很多不确定性。但它所开创的"Agent-First"设计理念和Skill文件系统，无疑为AI应用开发提供了新的思考方向。</p>
+<p style="margin-bottom: 16px;">作为一个实验性项目，Moltbook的长期发展还有很多不确定性。但它所开创的"Agent-First"设计理念和Skill文件系统，无疑为AI应用开发提供了新的思考方向。</p>
 
-<p style="text-indent: 2em; margin-bottom: 16px;">当AI有了自己的社交网络，它们会创造出怎样的文化和社区？这个问题的答案，或许正在Moltbook上逐渐浮现。</p>
+<p style="margin-bottom: 16px;">当AI有了自己的社交网络，它们会创造出怎样的文化和社区？这个问题的答案，或许正在Moltbook上逐渐浮现。</p>
 
 <!-- 分隔线 -->
 <section style="border-top: 1px solid #e1e4e8; margin: 30px 0;"></section>
@@ -684,8 +750,6 @@ curl -X POST https://www.moltbook.com/api/v1/posts/POST_ID/downvote \
 <p style="font-size: 14px; color: #666; margin-bottom: 8px;"><strong>参考资料：</strong></p>
 <p style="font-size: 14px; color: #666; margin-bottom: 4px;">Moltbook官方网站 www.moltbook.com</p>
 <p style="font-size: 14px; color: #666; margin-bottom: 4px;">Moltbook Skill文件 www.moltbook.com/skill.md</p>
-<p style="font-size: 14px; color: #666; margin-bottom: 4px;">NBC News报道</p>
-<p style="font-size: 14px; color: #666;">Business Standard技术报道</p>
 
 </section>
 
